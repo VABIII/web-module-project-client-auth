@@ -1,28 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import axios from "axios";
 import {Route} from "react-router-dom";
 
 import Header from "./components/Header";
 import Login from "./components/Login"
 import Friends from "./components/Friends";
 import Logout from "./components/Logout";
+import AddFriend from "./components/AddFriend";
 import PrivateRoute from "./components/PrivateRoute";
 
 
-const credentials = {
-    username: "Bloom",
-    password: "Tech",
-    role: "admin",
-    token:"ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98"
-}
-
-
-
-
-
 function App() {
-
 
 
   return (
@@ -32,6 +20,7 @@ function App() {
       <Route path={"/login"} component={Login}/>
       <PrivateRoute path={"/friends"} component={Friends}/>
       <PrivateRoute  path={"/logout"} component={Logout}/>
+      <PrivateRoute path={"/add-friend"} component={AddFriend} />
     </div>
   );
 }
