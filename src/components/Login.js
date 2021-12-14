@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 
@@ -16,10 +17,9 @@ const Login = () => {
     const [values, setValues] = useState(credentials);
     console.log(values)
 
-
-
-    const login = values => {
-        axios.post("http://localhost:9000/api/login", values)
+    const login = () => {
+        axiosWithAuth()
+            .post("/login", values)
             .then(res => {
                 console.log(res.data)
                 const token = res.data.token;
@@ -51,14 +51,7 @@ const Login = () => {
         evt.preventDefault();
         console.log("Submitted")
         login(values)
-
     }
-
-
-
-
-
-
 
     return (
         <div>

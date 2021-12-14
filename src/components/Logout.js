@@ -1,14 +1,23 @@
 import React, {useEffect} from 'react';
-import axios from "axios";
-
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 const Logout = () => {
+    const token = localStorage.getItem("token")
+    console.log(token)
+
     useEffect(() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("username");
-        localStorage.removeItem("role");
-        window.location.href = "/login";
+        axiosWithAuth()
+            .post('/logout')
+            .then(() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("username");
+                localStorage.removeItem("role");
+                window.location.href = "/login";
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }, [])
 
     return (

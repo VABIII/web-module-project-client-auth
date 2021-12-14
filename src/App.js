@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Login from "./components/Login"
 import Friends from "./components/Friends";
 import Logout from "./components/Logout";
+import PrivateRoute from "./components/PrivateRoute";
 
 
 const credentials = {
@@ -29,8 +30,8 @@ function App() {
       <Header/>
         <br/>
       <Route path={"/login"} component={Login}/>
-      <Route path={"/friends"} component={Friends}/>
-      <Route path={"/logout"} component={Logout}/>
+      <PrivateRoute path={"/friends"} component={Friends}/>
+      <PrivateRoute  path={"/logout"} component={Logout}/>
     </div>
   );
 }
