@@ -1,16 +1,12 @@
 import React, {useState} from 'react';
-import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 
 const credentials = {
     username: "",
-    password: "",
-    // role: "admin",
-    // token:"ahuBHejkJJiMDhmODZhZi0zaeLTQ4ZfeaseOGZgesai1jZWYgrTA07i73Gebhu98"
-}
-
+    password: ""
+};
 
 
 const Login = () => {
@@ -45,13 +41,13 @@ const Login = () => {
             ...values,
             [name]: value
         })
-    }
+    };
 
     const onSubmit = evt => {
         evt.preventDefault();
         console.log("Submitted")
         login(values)
-    }
+    };
 
     return (
         <div>

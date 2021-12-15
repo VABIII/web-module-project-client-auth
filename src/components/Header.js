@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 
 const Header = () => {
-    const token = localStorage.getItem("token")
+    const token = localStorage.getItem("token");
 
     return (
         <div>
@@ -13,7 +13,8 @@ const Header = () => {
             <div>
                 <Link to={"/"}>Home</Link>&nbsp;
                 { !token && <Link to={"/login"}>Login</Link>}&nbsp;
-                <Link to={"/friends"}>Friends</Link>&nbsp;
+                {token && <Link to={"/friends"}>Friends</Link>} &nbsp;
+                {token && <Link to={"/add-friend"}>Add Friend&nbsp;</Link>}
                 {token && <Link to={"/logout"}>Logout</Link>}&nbsp;
             </div>
         </div>
