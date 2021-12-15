@@ -3,8 +3,6 @@ import axiosWithAuth from "../utils/axiosWithAuth";
 
 
 const Logout = () => {
-    const token = localStorage.getItem("token")
-    console.log(token)
 
     useEffect(() => {
         axiosWithAuth()

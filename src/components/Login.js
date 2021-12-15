@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-
-
 const credentials = {
     username: "",
     password: ""
 };
 
-
 const Login = () => {
     const [values, setValues] = useState(credentials);
-    console.log(values)
 
     const login = () => {
         axiosWithAuth()
@@ -31,8 +27,8 @@ const Login = () => {
             })
             .finally(() => {
                 window.location.href="/friends"
-            })
-    }
+            });
+    };
 
     const onChange = evt => {
         const name = evt.target.name;
@@ -40,13 +36,12 @@ const Login = () => {
         setValues({
             ...values,
             [name]: value
-        })
+        });
     };
 
     const onSubmit = evt => {
         evt.preventDefault();
-        console.log("Submitted")
-        login(values)
+        login(values);
     };
 
     return (
@@ -63,7 +58,7 @@ const Login = () => {
                 &nbsp;
                 <label htmlFor="password">Password:&nbsp;</label>
                 <input
-                    type="text"
+                    type="password"
                     name="password"
                     value={values.password}
                     onChange={onChange}

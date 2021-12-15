@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import {Route} from "react-router-dom";
 
@@ -11,7 +11,6 @@ import PrivateRoute from "./components/PrivateRoute";
 
 
 function App() {
-
 
   return (
     <div className="App">

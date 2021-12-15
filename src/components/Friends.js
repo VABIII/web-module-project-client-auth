@@ -2,12 +2,10 @@ import React, {useState, useEffect} from 'react';
 import Friend from "./Friend";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const friendsInitialValues = []
-
+const friendsInitialValues = [];
 
 const Friends = () => {
     const [friends, setFriends] = useState(friendsInitialValues);
-    console.log(friends)
 
     useEffect(() => {
         axiosWithAuth().get("/friends")
@@ -16,7 +14,7 @@ const Friends = () => {
             })
             .catch(err => {
                 console.error(err);
-            })
+            });
     }, []);
 
     return (

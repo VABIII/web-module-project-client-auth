@@ -1,15 +1,12 @@
 import React, {useState} from 'react';
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-
 const initialValues = {
     name: "",
     age: "",
     email:""
 
-}
-
-
+};
 
 const AddFriend = () => {
     const [values, setValues] = useState(initialValues);
@@ -17,14 +14,13 @@ const AddFriend = () => {
     const addFriend = newFriend => {
         axiosWithAuth()
             .post("/friends", newFriend)
-            .then(res => {
-                console.log(res)
+            .then(() => {
+                window.location.href="/friends"
             })
             .catch(err => {
                 console.error(err)
-            })
-    }
-
+            });
+    };
 
     const onChange = evt => {
         const name = evt.target.name;
@@ -32,15 +28,13 @@ const AddFriend = () => {
         setValues({
             ...values,
             [name]: value
-        })
-        console.log(values)
-    }
+        });
+    };
 
     const onSubmit = evt => {
         evt.preventDefault();
-        addFriend(values)
-    }
-
+        addFriend(values);
+    };
 
     return (
         <div className="add-friend-container">
